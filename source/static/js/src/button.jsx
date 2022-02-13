@@ -8,18 +8,13 @@ class AcceptButton extends React.Component {
     constructor(props) {
         super(props);
     }
-    componentDidMount() {
-        
-    }
-    componentWillUnmount() {
-
-    }
     render() {
         return (
             <input 
                 className="AcceptButton" 
-                type="submit"
-                value={this.props.text}>
+                type="button"
+                value={this.props.text}
+                onClick={this.props.onClick}>
             </input>
         )
     }
