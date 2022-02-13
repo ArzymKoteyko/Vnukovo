@@ -1,0 +1,16 @@
+.special-label {
+    display: none;
+}
+
+.form-control {
+    color: black;
+    width: calc(100% - calc(var(--width)*0.02));
+    height: var(--height);
+    font-size: var(--font-size);
+    margin: var(--margin);
+    padding: var(--margin);
+    border-radius: var(--border-radius);
+    border: 1px solid rgb(204, 204, 204);
+    outline: none;
+    text-align: left,
+}

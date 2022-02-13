@@ -1,0 +1,85 @@
+@font-face {
+    font-family: 'Kinetika';
+    src: url('./Kastelov\ -\ Kinetika\ Light.otf');
+    font-weight: 100;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Kinetika';
+    src: url('./Kastelov\ -\ Kinetika\ Medium.otf');
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Kinetika';
+    src: url('./Kastelov\ -\ Kinetika\ SemiBold.otf');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Kinetika';
+    src: url('./Kastelov\ -\ Kinetika\ Bold.otf');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Kinetika';
+    src: url('./Kastelov\ -\ Kinetika\ Ultra.otf');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Mittelschrift';
+    src: url('./Halvar\ Mittelschrift\ Hairline.ttf');
+    font-weight: 100;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Mittelschrift';
+    src: url('./Halvar\ Mittelschrift\ ExtraThin.ttf');
+    font-weight: 200;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Mittelschrift';
+    src: url('./Halvar\ Mittelschrift\ Thin.ttf');
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Mittelschrift';
+    src: url('./Halvar\ Mittelschrift\ Light.ttf');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Mittelschrift';
+    src: url('./Halvar\ Mittelschrift\ Regular.ttf');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Mittelschrift';
+    src: url('./Halvar\ Mittelschrift\ Medium.ttf');
+    font-weight: 600;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Mittelschrift';
+    src: url('./Halvar\ Mittelschrift\ Bold.ttf');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Mittelschrift';
+    src: url('./Halvar\ Mittelschrift\ ExtraBold.ttf');
+    font-weight: 800;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Mittelschrift';
+    src: url('./Halvar\ Mittelschrift\ Black.ttf');
+    font-weight: 800;
+    font-style: normal;
+}

@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+@import url('../fonts/fonts.css');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -ms-overflow-style: none; /* IE 11 */
+    scrollbar-width: none; /* Firefox 64 */
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Mittelschrift';
+    font-family: 'Kinetika';
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+.canvas {
+    background-image: url('../img/Blur.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: block;
+    height: 100.1vh;
+    width: 100vw;
+}
+
+.content {
+    height: 100vh;
+    top: 0;
+    position: sticky;
+}
+
+input {
+    display: block;
+}
+
+
+#UserInput {
+    --width: 20rem;
+    --amount: 6;
+
+    --height: calc(calc(var(--width)/var(--amount))/0.95);
+    --margin: calc(var(--width)*0.01);
+    --border-radius: calc(calc(var(--width)/var(--amount))/12);
+    --font-size: calc(calc(var(--width)/var(--amount))/1.6);
+    width: var(--width);
+    border: 2px solid yellowgreen;
+}
+
+#UserInput h5 {
+    width: 100%;
+    font-size: calc(var(--font-size)/2.4);
+    text-align: right;
+    padding-right: calc(var(--margin)*2.4);
+}
+
+.Company {
+    width: 20rem;
+    border: 2px solid orange;
+    height: 6rem;
+}

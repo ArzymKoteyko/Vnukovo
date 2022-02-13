@@ -1,0 +1,14 @@
+.AcceptButton {
+    color: black;
+    width: calc(100% - calc(var(--width)*0.02));
+    height: var(--height);
+    font-size: calc(var(--font-size)*0.7);
+    margin: var(--margin);
+    padding: var(--margin);
+    border-radius: var(--border-radius);
+    border: 1px solid rgb(204, 204, 204);
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}

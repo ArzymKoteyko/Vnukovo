@@ -1,0 +1,30 @@
+{
+  "name": "vnukovo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --progress --config webpack.config.js",
+    "dev-build": "webpack --progress -d --config webpack.config.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "webpack --progress --config webpack.config.js --watch"
+  },
+  "keywords": [],
+  "author": "Arzym-Koteyko",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
+    "babel-loader": "^8.2.3",
+    "css-loader": "^6.6.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.68.0"
+  },
+  "devDependencies": {
+    "react-phone-input-2": "^2.15.0",
+    "react-pin-field": "^2.0.0-beta.3",
+    "webpack-cli": "^4.9.2"
+  }
+}
