@@ -1,16 +1,39 @@
+@import url(./colors.css);
+
 .special-label {
     display: none;
 }
 
 .form-control {
-    color: black;
+    color: rgba(var(--color-yellow), 1);
+    background-color: rgba(0,0,0,0);
     width: calc(100% - calc(var(--width)*0.02));
     height: var(--height);
     font-size: var(--font-size);
     margin: var(--margin);
     padding: var(--margin);
     border-radius: var(--border-radius);
-    border: 1px solid rgb(204, 204, 204);
+    border: 1px solid rgba(var(--color-yellow), 1);
     outline: none;
     text-align: left,
+}
+.form-control[valid_pass] {
+    color: rgb(var(--color-green));
+    border-color: rgb(var(--color-green));
+    background-color: rgba(var(--color-green), 0.25);
+}
+.form-control[valid_fail] {
+    animation: shake 3 linear 75ms;
+    color: rgb(var(--color-red));
+    border-color: rgb(var(--color-red));
+    box-shadow: 0 0 0.25rem rgba(var(--color-red), 0.5);
+}
+
+@keyframes shake {
+    from {
+        transform: scale(1.02) translateY(-0.5%);
+    }
+    to {
+        transform: scale(1.02) translateY(0.5%);
+    }
 }

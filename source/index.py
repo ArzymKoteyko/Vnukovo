@@ -18,7 +18,9 @@ def tel_validation():
         session_id = len(session_pins.keys())
         session_pins.update({session_id: pin_code})
         return {
+            'action': 'tel_validation',
             'does_exist': True,
+            'status': 'pass',
             'session_id': session_id,
             'pin_code': pin_code
         }

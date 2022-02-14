@@ -28,6 +28,8 @@ class UserInput extends React.Component {
             session_id: null,
             is_valid: null,
         };
+        this.tel_input_link = document.getElementsByClassName('form-control')[0]
+        this.pin_input_link = document.getElementsByTagName('swd-pin-field')[0]
     }
     // send request to server
     fetchData(params, endpoint) {
@@ -40,6 +42,8 @@ class UserInput extends React.Component {
     // observe changes in phone input
     handleTelNumberChange = (value, country, e) => {
         this.state.tel_number = value;
+        document.getElementsByClassName('form-control')[0].removeAttribute('valid_fail')
+        document.getElementsByClassName('form-control')[0].removeAttribute('valid_pass')
     }
     // button "next" is presed
     handleTelNumberSend = () => {
@@ -49,7 +53,7 @@ class UserInput extends React.Component {
             },
             "/tel_validation"
         ));
-        if (res['does_exist'] == true) {
+        if (res['status'] == 'pass') {
             this.setState((state) => {
                 return {
                     tel_verified: true,
@@ -58,9 +62,13 @@ class UserInput extends React.Component {
                 }
             });
             console.log(res['pin_code']); // for debug
+            document.getElementsByClassName('form-control')[0].setAttribute('valid_pass', '')
+            document.getElementsByClassName('form-control')[0].removeAttribute('valid_fail')
         }
         else {
             console.log("phone number dosen't exist");
+            document.getElementsByClassName('form-control')[0].setAttribute('valid_fail', '')
+            document.getElementsByClassName('form-control')[0].removeAttribute('valid_pass')
         }
     }
     handlePinChange = (value) => {

@@ -1,9 +1,11 @@
+@import url(./colors.css);
+
 .pin-field {
     width: calc(100%/var(--amount));
     height: var(--height);
-    color: black;
-    background-color: rgb(248, 249, 250);
-    border: 1px solid rgb(204, 204, 204);
+    color: rgba(var(--color-yellow), 1);
+    background-color: rgba(0,0,0,0);
+    border: 1px solid rgba(var(--color-yellow), 1);
     border-radius: var(--border-radius);
     font-size: var(--font-size);
     margin: var(--margin);
@@ -19,13 +21,6 @@
     outline: none;
     transform: scale(1.08);
 }
-  
-.pin-field:invalid {
-    animation: shake 3 linear 75ms;
-    border-color: rgb(220, 53, 69);
-    box-shadow: 0 0 0.25rem rgba(220, 53, 69, 0.5);
-}
-  
 /*
 swd-pin-field[completed] .pin-field {
     border-color: rgb(40, 167, 69);
@@ -33,13 +28,15 @@ swd-pin-field[completed] .pin-field {
 }
 */
 swd-pin-field[valid_pass] .pin-field {
-    border-color: rgb(40, 167, 69);
-    background-color: rgba(40, 167, 69, 0.25);
+    color: rgb(var(--color-green));
+    border-color: rgb(var(--color-green));
+    background-color: rgba(var(--color-green), 0.25);
 }
-swd-pin-field[valid_fail] .pin-field {
+swd-pin-field[valid_fail] .pin-field, .pin-field:invalid {
     animation: shake 3 linear 75ms;
-    border-color: rgb(220, 53, 69);
-    box-shadow: 0 0 0.25rem rgba(220, 53, 69, 0.5);
+    color: rgb(var(--color-red));
+    border-color: rgb(var(--color-red));
+    box-shadow: 0 0 0.25rem rgba(var(--color-red), 0.5);
 }
   
 @keyframes shake {
