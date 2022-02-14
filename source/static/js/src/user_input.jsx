@@ -15,6 +15,7 @@ function formatParams( params ){
         .join("&")
 }
 
+
 class UserInput extends React.Component {
     constructor(props) {
         super(props);
@@ -22,13 +23,15 @@ class UserInput extends React.Component {
             tel_number: null,
             tel_verified: false,
             pin_lenght: 6,
-            pin_code: null, // for debug
+            recieved_pin_code: null, // for debug
+            pin_code: null,
+            session_id: null,
+            is_valid: null,
         };
-        this.endpoint = "/data_server"
     }
     // send request to server
-    fetchData(params) {
-        let dist_url = this.endpoint + formatParams(params);
+    fetchData(params, endpoint) {
+        let dist_url = endpoint + formatParams(params);
         let request = new XMLHttpRequest();
         request.open('GET', dist_url, false); // false for synchronous request
         request.send(null);
@@ -39,21 +42,60 @@ class UserInput extends React.Component {
         this.state.tel_number = value;
     }
     // button "next" is presed
-    handleTelephoneSend = () => {
+    handleTelNumberSend = () => {
         let res = JSON.parse(this.fetchData(
-            {'tel_number': this.state.tel_number},
+            {
+                'tel_number': this.state.tel_number
+            },
+            "/tel_validation"
         ));
         if (res['does_exist'] == true) {
             this.setState((state) => {
                 return {
                     tel_verified: true,
-                    pin_code: res['pin_code'] // for debug
+                    session_id: res['session_id'],  
+                    recieved_pin_code: res['pin_code'] // for debug
                 }
             });
             console.log(res['pin_code']); // for debug
         }
         else {
             console.log("phone number dosen't exist");
+        }
+    }
+    handlePinChange = (value) => {
+        if (value.length == this.state.pin_lenght) {
+            this.setState((state) => {
+                return {
+                    pin_code: value,
+                }
+            })
+            let validation = JSON.parse(this.fetchData(
+                {
+                    'session_id': this.state.session_id,
+                    'pin_code': this.state.pin_code
+                },
+                "/pin_validation"
+            ));
+            this.setState((state) => {
+                return {
+                    is_valid: validation['status'] == 'pass' ? true : false
+                }
+            })
+            if (this.state.is_valid) {
+                document.getElementsByTagName('swd-pin-field')[0].removeAttribute('valid_fail')
+                document.getElementsByTagName('swd-pin-field')[0].setAttribute('valid_pass', '')
+            }
+            else if (!this.state.is_valid) {
+                document.getElementsByTagName('swd-pin-field')[0].setAttribute('valid_fail', '')
+                document.getElementsByTagName('swd-pin-field')[0].removeAttribute('valid_pass')
+            }
+            console.log(validation)
+            console.log(this.state.is_valid)   
+        }
+        else {
+            document.getElementsByTagName('swd-pin-field')[0].removeAttribute('valid_fail')
+            document.getElementsByTagName('swd-pin-field')[0].removeAttribute('valid_pass')
         }
     }
 
@@ -70,7 +112,7 @@ class UserInput extends React.Component {
                     />
                     <h5>{'Телефон'}</h5>
                     <AcceptButton
-                        onClick={this.handleTelephoneSend}
+                        onClick={this.handleTelNumberSend}
                         text={'далее'}
                     />
                 </form>
@@ -86,6 +128,7 @@ class UserInput extends React.Component {
                     />
                     <h5>{'Телефон'}</h5>
                     <PinField
+                        onChange={this.handlePinChange} 
                         class="pin-field"
                         validate="0123456789"
                         inputmode="numeric"
@@ -96,7 +139,7 @@ class UserInput extends React.Component {
                         onClick={() => this.handleClick()}
                         text={'отправить код'}
                     />
-                    <h5>{this.state.pin_code}</h5>
+                    <h5>{this.state.recieved_pin_code}</h5>
                 </form>
             </>)
         }
