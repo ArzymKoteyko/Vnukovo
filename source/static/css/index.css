@@ -62,7 +62,7 @@ html {
     }
 }
 @media (orientation: landscape) and (max-height: 400px) {
-    .canvas {
+    .filter  {
         flex-direction: row;
     }
     .Company {
@@ -79,7 +79,7 @@ html {
     }
     .content {
         margin-top: 1.5rem;
-        margin-left: 1.5rem;
+        margin-right: 1.5rem;
     }
 }
 

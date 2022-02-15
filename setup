@@ -1,0 +1,25 @@
+function colorEcho() {
+    tput setaf $2
+    echo $1
+    tput setaf 256
+}
+
+DIR=./py-env
+colorEcho "[Installing python enviroment]" 11
+if [ -d "$DIR" ]; then
+    colorEcho "[Python enviroment already exists]" 10
+else
+    python -m venv py-env
+fi
+colorEcho "[Activating python enviroment]" 11
+source ./py-env/bin/activate
+colorEcho "[Checking for available updates]" 11
+python -m pip install --upgrade pip
+colorEcho "[Updating python dependecies]" 11
+python -m pip install -r py-modules.txt
+colorEcho "[Updating nodejs dependecies]" 11
+npm install .
+colorEcho "[transcripting jsx files to regular js]" 11
+npm run build
+colorEcho "[Starting Flask server]" 11
+python ./source/index.py
