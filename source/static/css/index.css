@@ -15,6 +15,8 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+    -webkit-transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
 }
 
 .canvas {
@@ -22,15 +24,57 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    display: block;
+    display: flex;
+    flex-direction: column;
     height: 100.1vh;
     width: 100vw;
 }
 
+.header {
+    height: 28vh;
+    border: 2px red solid;
+}
+.footer {
+    border: 2px red solid;
+    flex-grow: 1;
+}
+.filler {
+    display: none;
+}
+@media (orientation: portrait) {
+    .header {
+        height: 20vh;
+    }
+}
+@media (orientation: landscape) and (max-height: 400px) {
+    .canvas {
+        flex-direction: row;
+    }
+    .Company {
+        display: none;
+    }
+    .header, .footer {
+        display: none;
+    }
+    .filler {
+        display: block;
+        border: 2px red solid;
+        flex-grow: 1;
+        height: 100vh;
+    }
+    .content {
+        margin-top: 1.5rem;
+        margin-left: 1.5rem;
+    }
+}
+
 .content {
-    height: 100vh;
-    top: 0;
-    position: sticky;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px blue solid;
+    flex-grow: 0;
 }
 
 input {
@@ -47,7 +91,6 @@ input {
     --border-radius: calc(calc(var(--width)/var(--amount))/12);
     --font-size: calc(calc(var(--width)/var(--amount))/1.6);
     width: var(--width);
-    border: 2px solid yellowgreen;
 }
 
 #UserInput h5 {

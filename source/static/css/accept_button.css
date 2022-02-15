@@ -6,9 +6,17 @@
     margin: var(--margin);
     padding: var(--margin);
     border-radius: var(--border-radius);
-    border: 1px solid rgb(204, 204, 204);
+    border: 1px solid rgb(var(--color-yellow));
+    color: rgb(var(--color-yellow));
+    background-color: rgba(0,0,0,0);
     outline: none;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+    transition: all 150ms ease-out;
+}
+
+.AcceptButton:hover, .AcceptButton:focus {
+    background-color: rgba(var(--color-yellow), 0.25);
+    transform: scale(1.02);
 }

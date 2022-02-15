@@ -145,7 +145,7 @@ class UserInput extends React.Component {
                     <h5>{'Код из смс'}</h5>
                     <AcceptButton
                         onClick={() => this.handleClick()}
-                        text={'отправить код'}
+                        text={'отправить повторно'}
                     />
                     <h5>{this.state.recieved_pin_code}</h5>
                 </form>

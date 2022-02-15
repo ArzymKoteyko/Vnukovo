@@ -15,7 +15,6 @@
     transition-duration: 250ms;
     transition-property: background, color, border, box-shadow, transform;
 }
-  
 .pin-field:focus {
     border-color: rgb(0, 123, 255);
     outline: none;

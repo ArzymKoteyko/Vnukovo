@@ -13,9 +13,14 @@
     margin: var(--margin);
     padding: var(--margin);
     border-radius: var(--border-radius);
-    border: 1px solid rgba(var(--color-yellow), 1);
+    border: 1px solid rgb(var(--color-yellow));
     outline: none;
-    text-align: left,
+    text-align: left;
+    transition: all 150ms ease-out;
+}
+.form-control:hover, .form-control:focus {
+    background-color: rgba(var(--color-yellow), 0.25);
+    transform: scale(1.02);
 }
 .form-control[valid_pass] {
     color: rgb(var(--color-green));
