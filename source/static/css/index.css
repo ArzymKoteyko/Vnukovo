@@ -124,11 +124,10 @@ input {
     background-image: url(../img/Otkr_logo_bank_white.png);
     background-size: contain;
     background-repeat: no-repeat;
-    margin-top: calc(var(--height)/8);
+    margin-top: calc(var(--height)/2);
 }
 @media (orientation: landscape) {
     .Sponser {
         width: 30rem;
-        margin-top: calc(var(--height)/2);
     }
 }
