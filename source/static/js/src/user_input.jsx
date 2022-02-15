@@ -46,6 +46,11 @@ class UserInput extends React.Component {
         document.getElementsByClassName('form-control')[0].removeAttribute('valid_pass')
     }
     // button "next" is presed
+    handelEnterPressed = (event) => {
+        if (event.key == 'Enter') {
+            this.handleTelNumberSend()
+        }
+    }
     handleTelNumberSend = () => {
         let res = JSON.parse(this.fetchData(
             {
@@ -64,11 +69,26 @@ class UserInput extends React.Component {
             console.log(res['pin_code']); // for debug
             document.getElementsByClassName('form-control')[0].setAttribute('valid_pass', '')
             document.getElementsByClassName('form-control')[0].removeAttribute('valid_fail')
+            document.getElementsByClassName('form-control')[0].removeAttribute('valid_fail_pasive')
+            document.getElementsByClassName('form-control')[0].focus()
+            document.getElementsByClassName('form-control')[0].select()
+            setTimeout(() => {
+                document.getElementsByClassName('pin-field')[0].focus()
+                document.getElementsByClassName('pin-field')[0].select()
+            }, 5)
         }
         else {
             console.log("phone number dosen't exist");
             document.getElementsByClassName('form-control')[0].setAttribute('valid_fail', '')
             document.getElementsByClassName('form-control')[0].removeAttribute('valid_pass')
+            document.getElementsByClassName('form-control')[0].removeAttribute('valid_fail_pasive')
+            setTimeout(() => {
+                document.getElementsByClassName('form-control')[0].setAttribute('valid_fail_pasive', '')
+                document.getElementsByClassName('form-control')[0].removeAttribute('valid_fail')
+                document.getElementsByClassName('form-control')[0].removeAttribute('valid_pass', '')
+                document.getElementsByClassName('form-control')[0].focus()
+                document.getElementsByClassName('form-control')[0].select()
+            }, 75)
         }
     }
     handlePinChange = (value) => {
@@ -93,6 +113,7 @@ class UserInput extends React.Component {
             if (this.state.is_valid) {
                 document.getElementsByTagName('swd-pin-field')[0].removeAttribute('valid_fail')
                 document.getElementsByTagName('swd-pin-field')[0].setAttribute('valid_pass', '')
+                setTimeout(() => {window.location.replace('/')}, 100)
             }
             else if (!this.state.is_valid) {
                 document.getElementsByTagName('swd-pin-field')[0].setAttribute('valid_fail', '')
@@ -116,7 +137,9 @@ class UserInput extends React.Component {
                 <form action="" method="post">
                     <PhoneInput
                         onChange={this.handleTelNumberChange}
+                        onKeyDown={this.handelEnterPressed}
                         country={'ru'}
+                        placeholder={'телефон'}
                     />
                     <h5>{'Телефон'}</h5>
                     <AcceptButton
@@ -133,6 +156,7 @@ class UserInput extends React.Component {
                 <form action="" method="post">
                     <PhoneInput
                         country={'ru'}
+                        placeholder={'телефон'}
                     />
                     <h5>{'Телефон'}</h5>
                     <PinField
@@ -144,7 +168,7 @@ class UserInput extends React.Component {
                     />
                     <h5>{'Код из смс'}</h5>
                     <AcceptButton
-                        onClick={() => this.handleClick()}
+                        onClick={this.handleTelNumberSend}
                         text={'отправить повторно'}
                     />
                     <h5>{this.state.recieved_pin_code}</h5>

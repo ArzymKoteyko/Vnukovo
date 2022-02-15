@@ -1,7 +1,12 @@
 @import url(./colors.css);
 
+
+swd-pin-field{
+    display: flex;
+    justify-content: space-between;
+}
 .pin-field {
-    width: calc(100%/var(--amount));
+    width: calc(85%/var(--amount));
     height: var(--height);
     color: rgba(var(--color-yellow), 1);
     background-color: rgba(0,0,0,0);
@@ -16,9 +21,10 @@
     transition-property: background, color, border, box-shadow, transform;
 }
 .pin-field:focus {
-    border-color: rgb(0, 123, 255);
+    /*border-color: rgb(0, 123, 255);*/
     outline: none;
     transform: scale(1.08);
+    border-width: 2px;
 }
 /*
 swd-pin-field[completed] .pin-field {
@@ -34,6 +40,7 @@ swd-pin-field[valid_pass] .pin-field {
 swd-pin-field[valid_fail] .pin-field, .pin-field:invalid {
     animation: shake 3 linear 75ms;
     color: rgb(var(--color-red));
+    background-color: rgba(var(--color-red), 0.25);
     border-color: rgb(var(--color-red));
     box-shadow: 0 0 0.25rem rgba(var(--color-red), 0.5);
 }

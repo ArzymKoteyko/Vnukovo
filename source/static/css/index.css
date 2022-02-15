@@ -19,23 +19,38 @@
     -webkit-backface-visibility: hidden;
 }
 
+html {
+    --width: 20rem;
+    --amount: 6;
+
+    --height: calc(calc(var(--width)/var(--amount))/0.95);
+    --margin: calc(var(--width)*0.01);
+    --border-radius: calc(calc(var(--width)/var(--amount))/12);
+    --font-size: calc(calc(var(--width)/var(--amount))/1.6);
+}
+
 .canvas {
     background-image: url('../img/Blur.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    height: 100.1vh;
+    width: 100vw;
+}
+.filter {
     display: flex;
     flex-direction: column;
+    background-color: rgba(0,0,0,0.5);
     height: 100.1vh;
     width: 100vw;
 }
 
 .header {
-    height: 28vh;
-    border: 2px red solid;
+    height: 33vh;
+    display: flex;
+    justify-content: center;
 }
 .footer {
-    border: 2px red solid;
     flex-grow: 1;
 }
 .filler {
@@ -43,7 +58,7 @@
 }
 @media (orientation: portrait) {
     .header {
-        height: 20vh;
+        height: 30vh;
     }
 }
 @media (orientation: landscape) and (max-height: 400px) {
@@ -73,7 +88,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 2px blue solid;
     flex-grow: 0;
 }
 
@@ -83,25 +97,38 @@ input {
 
 
 #UserInput {
-    --width: 20rem;
-    --amount: 6;
-
-    --height: calc(calc(var(--width)/var(--amount))/0.95);
-    --margin: calc(var(--width)*0.01);
-    --border-radius: calc(calc(var(--width)/var(--amount))/12);
-    --font-size: calc(calc(var(--width)/var(--amount))/1.6);
+    
     width: var(--width);
 }
 
 #UserInput h5 {
     width: 100%;
     font-size: calc(var(--font-size)/2.4);
+    color: rgb(var(--color-yellow));
     text-align: right;
     padding-right: calc(var(--margin)*2.4);
 }
 
 .Company {
     width: 20rem;
-    border: 2px solid orange;
-    height: 6rem;
+    height: 3.7rem;
+    background-image: url(../img/LogoTerminal.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-top: calc(var(--height)/3);
+}
+
+.Sponser {
+    width: 22rem;
+    height: 5rem;
+    background-image: url(../img/Otkr_logo_bank_white.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-top: calc(var(--height)/8);
+}
+@media (orientation: landscape) {
+    .Sponser {
+        width: 30rem;
+        margin-top: calc(var(--height)/2);
+    }
 }

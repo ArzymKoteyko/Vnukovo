@@ -19,19 +19,22 @@
     transition: all 150ms ease-out;
 }
 .form-control:hover, .form-control:focus {
-    background-color: rgba(var(--color-yellow), 0.25);
     transform: scale(1.02);
+    border-width: 2px;
 }
 .form-control[valid_pass] {
     color: rgb(var(--color-green));
     border-color: rgb(var(--color-green));
     background-color: rgba(var(--color-green), 0.25);
 }
-.form-control[valid_fail] {
-    animation: shake 3 linear 75ms;
+.form-control[valid_fail], .form-control[valid_fail_pasive] {   
     color: rgb(var(--color-red));
+    background-color: rgba(var(--color-red), 0.25);
     border-color: rgb(var(--color-red));
     box-shadow: 0 0 0.25rem rgba(var(--color-red), 0.5);
+}
+.form-control[valid_fail] {
+    animation: shake 3 linear 75ms;
 }
 
 @keyframes shake {

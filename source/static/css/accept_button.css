@@ -17,6 +17,6 @@
 }
 
 .AcceptButton:hover, .AcceptButton:focus {
-    background-color: rgba(var(--color-yellow), 0.25);
+    border-width: 2px;
     transform: scale(1.02);
 }
