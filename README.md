@@ -24,7 +24,7 @@ html templates located in source/templates
 	
 	
 	
-	athorisation is made in two main phases:
+	```athorisation is made in two main phases:```
 	
 1.
 ```
