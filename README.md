@@ -15,18 +15,19 @@ and all compield are in source/static/dep
 html templates located in source/templates
 
 
-	there is 2 objects to deploy project:
-#1 to stay whith flask backend:
+	there are 2 ways to deploy project:
+*1 to stay whith flask backend:
 	then you can continue to develope application as it is
 
-#2 choose different back:
+*2 choose different back:
 	in this case you must carefully replace all links in index.html
 	
 	
 	
 	athorisation is made in two main phases:
 	
-#1
+*1
+```
 		|                |                              |      |
 		|                |   <----   html[get]  <----   |      |
 		|     server     |   {'tel_number': int_value}  | user |
@@ -34,8 +35,10 @@ html templates located in source/templates
 		|                |   ---->   response   ---->   |      |
 		|                |   {'status': 'pass'/'fail',  |      |
 		|                |    'session_id': uniq int }  |      |
+```
 		
-#2 
+*2
+```
 		|                |                              |      |
 		|                |   <----   html[get]  <----   |      |
 		|     server     |   {'pin_code':   int_value,  | user |
@@ -43,6 +46,7 @@ html templates located in source/templates
 		|                |                              |      |
 		|                |   ---->   response   ---->   |      |
 		|                | {'status': 'pass' or 'fail'} |      |
+```
 		
 
 	You can compile and run test version simply by execution setup script
