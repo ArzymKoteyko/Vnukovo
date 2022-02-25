@@ -153,7 +153,10 @@ class UserInput extends React.Component {
             if (this.state.is_valid) {
                 document.getElementsByTagName('swd-pin-field')[0].removeAttribute('valid_fail')
                 document.getElementsByTagName('swd-pin-field')[0].setAttribute('valid_pass', '')
-                setTimeout(() => {window.location.replace('/')}, 100)
+                // after successfull authorisation 
+                // user will ber resent to 
+                setTimeout(() => {window.location.replace('/' /*  <-- this adress  */)}, 100)
+                // after 100ms
             }
             else if (!this.state.is_valid) {
                 document.getElementsByTagName('swd-pin-field')[0].setAttribute('valid_fail', '')
